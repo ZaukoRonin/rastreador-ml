@@ -39,7 +39,7 @@ if query_general:
 
 st.markdown("---")
 
-# Lista unificada de categorías solicitadas
+# Lista unificada de categorías
 categorias_comunes = [
     "Ropa Mujer", 
     "Ropa Hombre", 
@@ -76,16 +76,16 @@ with tab_meli:
 # --- SOLAPA SHEIN ---
 with tab_shein:
     st.header("🟣 Shein")
-    sub_t1, sub_t2 = st.tabs(["🔥 Lo Más Comprado y Ofertas", "📂 Explorar Categorías"])
+    sub_t1, sub_t2 = st.tabs(["🔥 Inicio y Ofertas", "📂 Explorar Categorías"])
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
-            st.link_button("Ver Novedades / Inicio", "https://us.shein.com/", use_container_width=True)
+            st.link_button("Ir a Shein Principal", "https://us.shein.com/", use_container_width=True)
         with c2:
-            st.link_button("Ver Ofertas Flash", "https://us.shein.com/flash-sale.html", use_container_width=True)
+            st.link_button("Ver Novedades Shein", "https://us.shein.com/new-in.html", use_container_width=True)
     with sub_t2:
         cat_shein = st.selectbox("Elegí una categoría en Shein:", categorias_comunes, key="s_cat")
-        st.link_button(f"Buscar '{cat_shein}' en Shein", f"https://us.shein.com/pdsearch/{cat_shein.lower().replace(' ', '-')}", use_container_width=True)
+        st.link_button(f"Buscar '{cat_shein}' en Shein", f"https://us.shein.com/pdsearch/{cat_shein.lower().replace(' ', '%20')}", use_container_width=True)
 
 # --- SOLAPA TEMU ---
 with tab_temu:
@@ -99,7 +99,7 @@ with tab_temu:
             st.link_button("Ver Ofertas Relámpago", "https://www.temu.com/lightning-deals.html", use_container_width=True)
     with sub_t2:
         cat_temu = st.selectbox("Elegí una categoría en Temu:", categorias_comunes, key="t_cat")
-        st.link_button(f"Buscar '{cat_temu}' en Temu", f"https://www.temu.com/search_result.html?search_key={cat_temu.lower().replace(' ', '-')}", use_container_width=True)
+        st.link_button(f"Buscar '{cat_temu}' en Temu", f"https://www.temu.com/search_result.html?search_key={cat_temu.lower().replace(' ', '%20')}", use_container_width=True)
 
 # --- SOLAPA AMAZON ---
 with tab_amazon:
