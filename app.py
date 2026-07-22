@@ -76,13 +76,13 @@ with tab_meli:
 # --- SOLAPA SHEIN ---
 with tab_shein:
     st.header("🟣 Shein")
-    sub_t1, sub_t2 = st.tabs(["🔥 Inicio y Ofertas", "📂 Explorar Categorías"])
+    sub_t1, sub_t2 = st.tabs(["🔥 Lo Más Popular y Ofertas", "📂 Explorar Categorías"])
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
-            st.link_button("Ir a Shein Principal", "https://us.shein.com/", use_container_width=True)
+            st.link_button("Ver Más Populares (Top Sellers)", "https://us.shein.com/campaign/topsellers", use_container_width=True)
         with c2:
-            st.link_button("Ver Novedades Shein", "https://us.shein.com/new-in.html", use_container_width=True)
+            st.link_button("Ver Ofertas Flash", "https://us.shein.com/flash-sale.html", use_container_width=True)
     with sub_t2:
         cat_shein = st.selectbox("Elegí una categoría en Shein:", categorias_comunes, key="s_cat")
         st.link_button(f"Buscar '{cat_shein}' en Shein", f"https://us.shein.com/pdsearch/{cat_shein.lower().replace(' ', '%20')}", use_container_width=True)
