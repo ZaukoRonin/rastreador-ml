@@ -80,7 +80,8 @@ with tab_shein:
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
-            st.link_button("Ver Más Populares (Top Sellers)", "https://us.shein.com/campaign/topsellers", use_container_width=True)
+            # Enlace corregido a los más populares/top-rated de Shein
+            st.link_button("Ver Más Populares (Top Sellers)", "https://us.shein.com/top-rated-c-1579.html", use_container_width=True)
         with c2:
             st.link_button("Ver Ofertas Flash", "https://us.shein.com/flash-sale.html", use_container_width=True)
     with sub_t2:
@@ -94,6 +95,7 @@ with tab_temu:
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
+            # Enlace corregido y directo a los más vendidos de Temu
             st.link_button("Ver Más Vendidos", "https://www.temu.com/best-sellers.html", use_container_width=True)
         with c2:
             st.link_button("Ver Ofertas Relámpago", "https://www.temu.com/lightning-deals.html", use_container_width=True)
