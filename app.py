@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # Configuración de la página
 st.set_page_config(
@@ -9,38 +10,42 @@ st.set_page_config(
 
 # Título principal
 st.title("🛒 Super Rastreador de Compras: Meli, Shein, Temu & Amazon")
-st.markdown("Tu panel unificado para buscar y comparar precios en las principales tiendas online.")
+st.markdown("Tu panel unificado para buscar y comparar precios en las principales tiendas online sin salir de la app.")
 
-# Buscador General Integrado (Muestra las 4 tiendas juntas en pantalla)
+# Buscador General Integrado (Muestra las tiendas incrustadas en la misma página)
 st.markdown("---")
-st.subheader("🔍 Buscador General Unificado (Todas las tiendas juntas)")
+st.subheader("🔍 Buscador General Unificado (Vistas en la misma pantalla)")
 query_general = st.text_input("¿Qué producto estás buscando en las 4 tiendas a la vez?", placeholder="Ej: zapatillas, campera, auricular bluetooth...")
 
 if query_general:
-    st.markdown(f"### Resultados y accesos directos para: *{query_general}*")
+    st.markdown(f"### Mostrando resultados interactivos para: *{query_general}*")
     
-    # Creamos 4 columnas para ver las 4 tiendas lado a lado en la misma página
-    col1, col2, col3, col4 = st.columns(4)
+    # Selector para elegir qué tienda querés ver en detalle en la pantalla principal
+    tienda_vista = st.radio(
+        "Elegí qué tienda querés visualizar acá abajo en la misma pantalla:",
+        ["🟡 Mercado Libre", "🟣 Shein", "🟠 Temu", "🔵 Amazon"],
+        horizontal=True
+    )
     
-    with col1:
-        st.markdown("### 🟡 Mercado Libre")
-        st.write("Búsqueda directa:")
-        st.link_button("Ver en Meli", f"https://listado.mercadolibre.com.ar/{query_general}", use_container_width=True)
-        
-    with col2:
-        st.markdown("### 🟣 Shein")
-        st.write("Búsqueda directa:")
-        st.link_button("Ver en Shein", f"https://us.shein.com/pdsearch/{query_general}", use_container_width=True)
-        
-    with col3:
-        st.markdown("### 🟠 Temu")
-        st.write("Búsqueda directa:")
-        st.link_button("Ver en Temu", f"https://www.temu.com/search_result.html?search_key={query_general}", use_container_width=True)
-        
-    with col4:
-        st.markdown("### 🔵 Amazon")
-        st.write("Búsqueda directa:")
-        st.link_button("Ver en Amazon", f"https://www.amazon.com/s?k={query_general}", use_container_width=True)
+    # Generamos los links de búsqueda para cada tienda
+    url_meli = f"https://listado.mercadolibre.com.ar/{query_general.replace(' ', '-')}"
+    url_shein = f"https://us.shein.com/pdsearch/{query_general.replace(' ', '%20')}"
+    url_temu = f"https://www.temu.com/search_result.html?search_key={query_general.replace(' ', '%20')}"
+    url_amazon = f"https://www.amazon.com/s?k={query_general.replace(' ', '+')}"
+    
+    # Mostramos el iframe correspondiente dentro de la misma página
+    if tienda_vista == "🟡 Mercado Libre":
+        st.markdown(f"**Visualizando Mercado Libre para: {query_general}**")
+        components.iframe(url_meli, height=600, scrolling=True)
+    elif tienda_vista == "🟣 Shein":
+        st.markdown(f"**Visualizando Shein para: {query_general}**")
+        components.iframe(url_shein, height=600, scrolling=True)
+    elif tienda_vista == "🟠 Temu":
+        st.markdown(f"**Visualizando Temu para: {query_general}**")
+        components.iframe(url_temu, height=600, scrolling=True)
+    elif tienda_vista == "🔵 Amazon":
+        st.markdown(f"**Visualizando Amazon para: {query_general}**")
+        components.iframe(url_amazon, height=600, scrolling=True)
 
 st.markdown("---")
 
