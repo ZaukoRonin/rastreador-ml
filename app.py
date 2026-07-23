@@ -80,7 +80,7 @@ with tab_shein:
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
-            st.link_button("Ir a Shein (Inicio / Novedades)", "https://us.shein.com/", use_container_width=True)
+            st.link_button("Ir a Shein (Inicio / Novedades)", "https://us.shein.com/recommend", use_container_width=True)
         with c2:
             st.link_button("Ver Ofertas Flash", "https://us.shein.com/flash-sale.html", use_container_width=True)
     with sub_t2:
