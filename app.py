@@ -80,11 +80,7 @@ with tab_shein:
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
-            # Usamos enlace directo a la home de novedades con bypass visual
-            st.markdown(
-                '<a href="https://us.shein.com/" target="_blank"><button style="width:100%; background-color:#FF4B4B; color:white; padding:0.5rem; border:none; border-radius:4px; font-weight:600; cursor:pointer;">Ir a Shein (Inicio / Novedades)</button></a>',
-                unsafe_allow_html=True
-            )
+            st.link_button("Ir a Shein (Inicio / Novedades)", "https://us.shein.com/", use_container_width=True)
         with c2:
             st.link_button("Ver Ofertas Flash", "https://us.shein.com/flash-sale.html", use_container_width=True)
     with sub_t2:
