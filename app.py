@@ -80,8 +80,11 @@ with tab_shein:
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
-            # Enlace directo a Novedades/Populares de Shein (como la captura 4)
-            st.link_button("Ver Más Populares / Novedades", "https://us.shein.com/recommend/New-In-c-1799.html", use_container_width=True)
+            # Usamos enlace directo a la home de novedades con bypass visual
+            st.markdown(
+                '<a href="https://us.shein.com/" target="_blank"><button style="width:100%; background-color:#FF4B4B; color:white; padding:0.5rem; border:none; border-radius:4px; font-weight:600; cursor:pointer;">Ir a Shein (Inicio / Novedades)</button></a>',
+                unsafe_allow_html=True
+            )
         with c2:
             st.link_button("Ver Ofertas Flash", "https://us.shein.com/flash-sale.html", use_container_width=True)
     with sub_t2:
