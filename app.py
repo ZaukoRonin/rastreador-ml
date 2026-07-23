@@ -80,7 +80,7 @@ with tab_shein:
     with sub_t1:
         c1, c2 = st.columns(2)
         with c1:
-            st.link_button("Ir a Shein (Inicio / Novedades)", "https://us.shein.com/recommend", use_container_width=True)
+            st.link_button("Ir a Shein (Inicio / Novedades)", "https://us.shein.com/recommend/us-sale-sc-10050051620.html?fromPageType=home&src_module=all&src_identifier=on%3DONE_THIRD_COMPONENT%60cn%3D左侧组件%60hz%3D-%60jc%3DitemPicking_10050051620%60ps%3D1_1&src_tab_page_id=page_home1784765675537&ici=CCCSN%3Dall_ON%3DONE_THIRD_COMPONENT_OI%3D0_0_CN%3DONE_THIRD_IMAGE_A_TI%3D50001_aod%3D0_PS%3D1-1_ABT%3D0", use_container_width=True)
         with c2:
             st.link_button("Ver Ofertas Flash", "https://us.shein.com/flash-sale.html", use_container_width=True)
     with sub_t2:
